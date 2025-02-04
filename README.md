@@ -19,6 +19,6 @@ Untested first draft
 - Arduino `.ino` file in `code/` directory.
 
 ## How to Build
-1. Upload `[code/multi-fx.ino](https://github.com/sblackt/attinymultifx/blob/main/code/attiny85multifx.ino)` to an ATtiny85.
+1. Upload `/code/attiny85multifx.ino` to an ATtiny85.
 2. Assemble the circuit on a PCB using the provided design.
 3. Enjoy glitchy, lo-fi guitar sounds!
