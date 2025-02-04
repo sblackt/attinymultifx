@@ -2,7 +2,7 @@
 Multi FX pedal based on the Attiny85 leveraging low bit rate glitchy digital processing
 
 # ATtiny85 Multi-FX Guitar Pedal
-
+WORK IN PROGRESS
 This project includes an ATtiny85-based multi-effects pedal with:
 - **Bit Crusher**
 - **Wave Folder**
