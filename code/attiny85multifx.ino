@@ -1,9 +1,10 @@
-#define AUDIO_IN A3   // PB3 (ADC Input)
-#define FX_SELECT 2  // PB2 (Switch: Bit Crusher <-> Wave Folder)
-#define AUDIO_OUT 1   // PB1 (PWM Output)
-#define BLEND_CTRL A1 // PB4 (Blend knob)
-#define LEVEL_LEFT A2  // PB5 (Effect Level: Crusher/Fold)
-#define LEVEL_RIGHT A0 // PB0 (Effect Level: Delay)
+#define AUDIO_IN A3   // PB3 (ADC Input, Pin 2)
+#define FX_SELECT 0   // PB0 (Switch: Bit Crusher <-> Wave Folder, Pin 5)
+#define AUDIO_OUT 1   // PB1 (PWM Output, Pin 6)
+#define BLEND_CTRL A1 // PB2 (Blend knob, Pin 7)
+#define LEVEL_LEFT A2 // PB4 (Effect Level: Crusher/Fold, Pin 3)
+#define LEVEL_RIGHT A0 // PB5 (Effect Level: Delay, Pin 1)
+
 
 bool useWaveFolder = false;
 
@@ -34,9 +35,17 @@ int bitCrusher(int sample) {
 }
 
 int waveFolder(int sample) {
-    int foldAmount = analogRead(LEVEL_LEFT) / 256 + 1;
-    return abs(sample - 512) % (256 / foldAmount) * 2;
+    int foldAmount = analogRead(LEVEL_LEFT) / 256 + 1; // Fold amount based on pot value
+    static int waveFolderOutputPrev = 0; // Variable to store the previous output value
+
+    // Apply folding and smoothing
+    int waveFolderOutput = abs(sample - 512) % (256 / foldAmount) * 2;
+    waveFolderOutput = (waveFolderOutputPrev * 7 + waveFolderOutput) / 8;
+    waveFolderOutputPrev = waveFolderOutput;
+
+    return waveFolderOutput;
 }
+
 
 int glitchDelay(int sample) {
     static int delayBuffer[128];
