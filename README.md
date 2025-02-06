@@ -11,8 +11,9 @@ This project includes an ATtiny85-based multi-effects pedal with:
 ## Hardware
 Untested first draft
 - Image Previews:
- <img width="700" alt="Screen Shot 2025-02-04 at 5 26 49 PM" src="https://github.com/user-attachments/assets/f153d832-a9a5-4835-9d3d-fab2ad5e00f8" />
-<img width="505" alt="Screen Shot 2025-02-04 at 5 27 01 PM" src="https://github.com/user-attachments/assets/9af7a4a8-4f53-4a66-8b93-44ca2dfb6981" />
+![Screenshot 2025-02-06 at 12 54 41 PM](https://github.com/user-attachments/assets/b576a1f1-5f45-4828-8d14-72ab0c3a7d87)
+
+
 
 
 ## Software
